@@ -144,27 +144,24 @@ public class GenerateRechnung
         }
     }
 
-    public static void GiveCalculation(int difficulty, int calculationtyp)
+    public static void GiveCalculation(int difficulty, List<int> calculationTypList)
     {
-        int _calculationtyp = calculationtyp;
-        if (calculationtyp == 0)
-        {
-            var random = new Random();
-            _calculationtyp = random.Next(1, 5);
-        }
+        var random = new Random();
 
-        switch (_calculationtyp)
+        int calculationTyp = calculationTypList[random.Next(0, calculationTypList.Count)];
+
+        switch (calculationTyp)
         {
-            case 1:
+            case 0:
                 pluscalculation(difficulty);
                 break;
-            case 2:
+            case 1:
                 minuscalculation(difficulty);
                 break;
-            case 3:
+            case 2:
                 multiplicationcalculation(difficulty);
                 break;
-            case 4:
+            case 3:
                 dividedcalculation(difficulty);
                 break;
         }
